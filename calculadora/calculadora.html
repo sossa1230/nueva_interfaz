@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form name="Calculadora">
+        <table>
+            <tr>
+                <td colspan="5">
+                    <input type="text" name="txtboxnros" value="0" disabled>
+                </td>
+            </tr>
+            <tr>
+                <td><input type="button" value="1" onclick="ingresarnumero(this.value)"></td>
+                <td><input type="button" value="2" onclick="ingresarnumero(this.value)"></td>
+                <td><input type="button" value="3" onclick="ingresarnumero(this.value)"></td>
+                <td><input type="button" value="+" onclick="ingresaoperacion(this.value)"></td>
+                <td><input type="button" value="-" onclick="ingresaoperacion(this.value)"></td>
+            </tr>
+            <tr>
+                <td><input type="button" value="4" onclick="ingresarnumero(this.value)"></td>
+                <td><input type="button" value="5" onclick="ingresarnumero(this.value)"></td>
+                <td><input type="button" value="6" onclick="ingresarnumero(this.value)"></td>
+                <td><input type="button" value="*" onclick="ingresaoperacion(this.value)"></td>
+                <td><input type="button" value="/" onclick="ingresaoperacion(this.value)"></td>
+            </tr>
+            <tr>
+                <td><input type="button" value="7" onclick="ingresarnumero(this.value)"></td>
+                <td><input type="button" value="8" onclick="ingresarnumero(this.value)"></td>
+                <td><input type="button" value="9" onclick="ingresarnumero(this.value)"></td>
+                <td><input type="button" value="^" onclick="ingresaoperacion('**')"></td>
+                <td><input type="button" value="√" onclick="raiz()"></td>
+            </tr>
+            <tr>
+                <td><input type="button" value="0" onclick="ingresarnumero(this.value)"></td>
+                <td><input type="button" value="." onclick="ingresarnumero(this.value)"></td>
+                <td><input type="button" value="C" onclick="limpiar()"></td>
+                <td colspan="2"><input type="button" value="      =      " onclick="resultado()"></td>
+            </tr>
+        </table>
+        <div id="volver">
+            <a href="../index.html" type="button">VOLVER</a>
+        </div>
+    </form>
+    <script type="text/javascript">
+        var numpantalla = "0";
+        var pantallaconnumero =true;
+        var usarpunto = false;
+        var numespera = 0;
+        var operapendiente = "";
+        var solucion = "";
+        function ingresarnumero(x) {
+            if (x != ".") {
+                if (numpantalla == "0" || pantallaconnumero ==true) {
+                    document.Calculadora.txtboxnros.value = x;
+                    numpantalla = x;
+                }
+                else if (x != ".") {
+                    document.Calculadora.txtboxnros.value += x;
+                    numpantalla += x;
+                }
+            }
+            if (x == "." && usarpunto == false && numpantalla == "0") {
+                document.Calculadora.txtboxnros.value = "0.";
+                numpantalla = x;
+                usarpunto =true;
+            }
+            else if (x == "." && usarpunto == false) {
+                document.Calculadora.txtboxnros.value += x;
+                numpantalla += x;
+                usarpunto =true;
+            }
+            else if (x == "." && usarpunto ==true) {
+            }
+            pantallaconnumero = false;
+        }
+        function ingresaoperacion(y) {
+            if (operapendiente == "") {
+                numespera = document.Calculadora.txtboxnros.value;
+                document.Calculadora.txtboxnros.value += y;
+                operapendiente = y;
+                pantallaconnumero = false;
+                numpantalla = "";
+                usarpunto = false;
+            }
+        }
+        function resultado() {
+            if (operapendiente != "") {
+                solucion = numespera + operapendiente + numpantalla;
+                if (operapendiente === '/' && numpantalla === '0') {
+                    document.Calculadora.txtboxnros.value = 'Error';
+                } else {
+                    document.Calculadora.txtboxnros.value = eval(solucion);
+                    numpantalla = eval(solucion);
+                }
+                pantallaconnumero =true;
+                operapendiente = "";
+                usarpunto = false;
+            }
+        }
+        function raiz() {
+            if (operapendiente == "") {
+                document.Calculadora.txtboxnros.value = Math.sqrt(numpantalla);
+                pantallaconnumero =true;
+                operapendiente = "";
+                usarpunto = false;
+            }
+        }
+        function limpiar() {
+            numpantalla = "0";
+            pantallaconnumero =true;
+            usarpunto = false;
+            numespera = 0;
+            operapendiente = "";
+            solucion = "";
+            document.Calculadora.txtboxnros.value = "0";
+        }
+    </script>
+    <style>
+        input[type=button] {
+            background-color: rgb(150, 145, 145);
+            border: none;
+            color: rgb(80, 6, 6);
+            font-weight: bold;
+            padding: 6px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 20px;
+            margin: 4px 4px;
+            cursor: pointer;
+            box-shadow: 3px 3px 3px rgb(255, 0, 0);
+            border-radius: 40px;
+        }
+        input[type=button]:hover {
+            background-color: rgb(134, 93, 93);
+            transform: scale(1.2);
+        }
+        input[type="text"] {
+            border: solid;
+            color: rgb(27, 27, 27);
+            padding: 15px 32;
+            text-align: right;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            cursor: pointer;
+            width: 95%;
+            box-shadow: 3px 3px 3px rgb(186, 38, 38);
+        }
+        body {
+            background-color: #7697c2;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            height: 100vh;
+        }
+        table {
+            background-color: #E4E7EA;
+            padding: 5px 5p
+        }
+    </style>
+</body>
+</html>

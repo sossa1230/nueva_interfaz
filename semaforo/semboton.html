@@ -1,0 +1,93 @@
+<<!DOCTYPE html>
+    <html>
+
+    <head>
+        <style>
+            .container {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                height: 300px;
+            }
+
+            .traffic-light {
+                width: 100px;
+                height: 300px;
+                background-color: black;
+                border-radius: 10px;
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+                padding: 10px;
+            }
+
+            .light {
+                width: 80px;
+                height: 80px;
+                border-radius: 50%;
+                margin: 0 auto;
+                transition: background-color 0.3s;
+            }
+
+            .red {
+                background-color: red;
+            }
+
+            .yellow {
+                background-color: yellow;
+            }
+
+            .green {
+                background-color: green;
+            }
+            button{
+                margin-left: 47%;
+                margin-top: 5%;
+            }
+        </style>
+    </head>
+
+    <body>
+        <div id="volver">
+            <a href="../index.html" type="button">VOLVER</a>
+        </div>
+
+        <div class="container">
+            <div class="traffic-light">
+                <div id="luzroja" class="light"></div>
+                <div id="luzamarilla" class="light"></div>
+                <div id="luzverde" class="light"></div>
+            </div>
+        </div>
+
+        <button onclick="cambiarcolor()">Cambiar color</button>
+
+        <script>
+            var cambio = 'yellow';
+
+            function cambiarcolor() {
+                var luzroja = document.getElementById('luzroja');
+                var luzamarilla = document.getElementById('luzamarilla');
+                var luzverde = document.getElementById('luzverde');
+
+                if (cambio === 'green') {
+                    luzroja.style.backgroundColor = 'red';
+                    luzamarilla.style.backgroundColor = 'transparent';
+                    luzverde.style.backgroundColor = 'transparent';
+                    cambio = 'red';
+                } else if (cambio === 'red') {
+                    luzroja.style.backgroundColor = 'transparent';
+                    luzamarilla.style.backgroundColor = 'yellow';
+                    luzverde.style.backgroundColor = 'transparent';
+                    cambio = 'yellow';
+                } else {
+                    luzroja.style.backgroundColor = 'transparent';
+                    luzamarilla.style.backgroundColor = 'transparent';
+                    luzverde.style.backgroundColor = 'green';
+                    cambio = 'green';
+                }
+            }
+        </script>
+    </body>
+
+    </html>

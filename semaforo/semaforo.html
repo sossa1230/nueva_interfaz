@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <style>
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 300px;
+        }
+
+        .semaforo {
+            width: 100px;
+            height: 300px;
+            background-color: black;
+            border-radius: 10px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            padding: 10px;
+            
+        }
+
+        .light {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            margin: 0 auto;
+            transition: background-color 0.3s;
+        }
+
+    </style>
+</head>
+
+<body>
+    <div id="volver">
+        <a href="../index.html" type="button">VOLVER</a>
+    </div>
+
+    <div class="container">
+        <div class="semaforo">
+            <div id="luzRoja" class="light"></div>
+            <div id="luzAmarilla" class="light"></div>
+            <div id="luzVerde" class="light"></div>
+        </div>
+    </div>
+
+    <script>
+        function colores() {
+            var luzRoja = document.getElementById('luzRoja');
+            var luzAmarilla = document.getElementById('luzAmarilla');
+            var luzVerde = document.getElementById('luzVerde');
+
+            luzRoja.style.backgroundColor = 'red';
+            luzAmarilla.style.backgroundColor = 'transparent';
+            luzVerde.style.backgroundColor = 'transparent';
+
+            setTimeout(function () {
+                luzRoja.style.backgroundColor = 'transparent';
+                luzAmarilla.style.backgroundColor = 'yellow';
+                luzVerde.style.backgroundColor = 'transparent';
+
+                setTimeout(function () {
+                    luzRoja.style.backgroundColor = 'transparent';
+                    luzAmarilla.style.backgroundColor = 'transparent';
+                    luzVerde.style.backgroundColor = 'green';
+
+                    setTimeout(colores, 2000);
+                }, 2000);
+            }, 2000);
+        }
+
+        colores();        
+    </script>
+</body>
+
+</html>

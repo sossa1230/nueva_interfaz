@@ -1,0 +1,306 @@
+* {
+    margin: 0;
+    padding-left: 0.5px;
+    text-decoration: none;
+    font-family: 'Crimson Text', serif;
+    box-sizing: border-box;
+}
+
+section {
+    padding: 30px 0%;
+}
+
+header {
+    background: #000;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 15px 5px;
+    z-index: 1;
+}
+
+
+header .menu-nav {
+    display: flex;
+    justify-content: space-around;
+    margin: 0px;
+    max-width: 990;
+}
+#volver{
+    margin-top: 150px;
+}
+
+header .menu-nav .nombre {
+    font-size: 25px;
+    font-weight: bold;
+    padding: 0 25px;
+}
+
+header .menu-nav .menu-links {
+    color: #fff;
+    text-decoration: none;
+}
+
+header .menu-nav .menu-links:hover{
+    color: rgb(243, 141, 15);
+}
+
+header .menu-nav .nav-links {
+    display: flex;
+    margin-right: 32px;
+    list-style: none;
+}
+
+header .menu-nav .nav-links .menu-link-nav {
+    font-size: 1.5rem;
+    margin: 0 25px;
+    line-height: 25px;
+}
+
+.presentacion .contenedor_presentacion {
+    display: flex;
+    padding-top: 60px;
+}
+
+.presentacion .contenedor_presentacion .imagen img {
+    padding: 16px;
+    padding-left: 0.5%;
+    width: 520px;
+    height: 520px;
+    border-radius: 50%;
+}
+
+.presentacion .contenido {
+    width: 60%;
+    text-align: left;
+    padding: 85px 0;
+}
+
+.presentacion .contenido h1 {
+    color: rgb(243, 141, 15);
+    padding: 0px 0;
+
+}
+
+.presentacion .contenido p {
+    padding: 10px 0;
+    font-size: 25px;
+}
+
+.presentacion .contenido .btn {
+    background: rgb(243, 141, 15);
+    color: #fff;
+    padding: 6px;
+    border: none;
+    border-radius: 5px;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.presentacion .contenido .btn:hover {
+    background: rgb(221, 181, 132);
+    color: #000;
+}
+
+.biografia {
+    background-color: aqua;
+    padding-top: 16px;
+}
+
+.biografia .contenedor {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+   
+}
+
+.biografia .contenedor .des {
+    text-align: center;
+    font-size: 25px;
+    padding: 20px 0;
+}
+
+.biografia .contenedor .name {
+    font-style: italic;
+    text-align: center;
+    padding: 20px 0;
+    font-size: 20px;
+}
+
+.biografia .contenedor .imagen{
+    background: #fff;
+    border-radius: 50%;
+}
+
+.biografia .contenedor .imagen img {
+    padding: 16px;
+    width: 420px;
+    height: 420px;
+    border-radius: 50%;
+}
+
+.proyectos .pro {
+    color: rgb(243, 141, 15);
+    font-size: 40px;
+    text-align: center;
+    padding: 1rem;
+}
+
+.proyectos .contenedor-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
+    gap: 16px;
+    
+}
+
+.proyectos .contenedor-cards .tarjetas {
+    background: #93ecf2;
+    border: .1px solid rgb(0, 0, 0, .2);
+    border-radius: 50px;
+    text-align: center;
+    position: relative;
+}
+
+.proyectos .contenedor-cards .tarjetas .imagen {
+    height: 18rem;
+    width: 100%;
+    padding: .5rem;
+    overflow: hidden;
+    
+}
+
+.proyectos .contenedor-cards .tarjetas .imagen img {
+    height: 100%;
+    width: 100%;
+    border-radius: 5rem;
+    object-fit: cover;
+}
+
+.proyectos .contenedor-cards .tarjetas .contenido {
+    padding: .5rem .5rem;
+}
+
+.proyectos .contenedor-cards .tarjetas .contenido h1 {
+    color: rgb(243, 141, 15);
+    font-size: 18px;
+    padding: 5px;
+}
+
+.proyectos .contenedor-cards .tarjetas .contenido p {
+    font-size: 18px;
+    padding: 5PX;
+}
+
+.proyectos .contenedor-cards .tarjetas .contenido .btn {
+    background: rgb(243, 141, 15);
+    color: #fff;
+    padding: 6px;
+    border: none;
+    border-radius: 50px;
+    font-size: 14px;
+    cursor: pointer;
+
+}
+
+footer {
+    background: #000;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding: 30px 3%;
+}
+
+footer p {
+    font-size: 25px;
+}
+
+
+@media only screen and (max-width: 400px){
+    header .menu-nav .nombre{
+        font-size: 20px;
+        font-weight: bold;
+        padding-left: 0.5%;
+    }
+
+    header .menu-nav .menu-links{
+        font-size: 20px;
+    }
+
+
+    .presentacion .contenedor_presentacion {
+        display: flex;
+        flex-direction: column;
+        padding-top: 60px;
+    }
+
+    .presentacion .contenido {
+        width: 100%;
+        text-align: left;
+        padding: 15px 0;
+    }
+
+    .presentacion .contenedor_presentacion .imagen img {
+        padding: 10px;
+        width: 420px;
+        height: 420px;
+        border-radius: 50%;
+    }
+
+    .presentacion .contenido p {
+        padding: 8px 0;
+        font-size: 15px;
+    }
+
+    .biografia .contenedor{
+        width: 100%;
+    }
+
+    .biografia .contenedor .imagen img {
+        padding: 10px;
+        width: 310px;
+        height: 310px;
+        border-radius: 50%;
+    }
+
+    .biografia .contenedor .des {
+        font-size: 15px;
+        padding: 10px 0;
+    }
+    .biografia .contenedor .name {
+        padding: 10px 0;
+        font-size: 15px;
+    }
+
+    footer {
+        padding: 20px 2%;
+        width: 104%;
+    }
+
+    footer p {
+        font-size: 15px;
+    }
+
+    .biografia{
+        width: 110%;
+    }
+}
+
+@media only screen and (min-width: 800px){
+	
+
+    header .menu-nav .nombre{
+        font-size: 20px;
+        font-weight: bold;
+        padding-left: 0.5%;
+    }
+
+    header .menu-nav {
+    display: flex;
+    
+    margin: 30px;
+    max-width: 990;
+}
+
+}
